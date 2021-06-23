@@ -72,7 +72,7 @@ func rangeSumBST2(root *TreeNode, low, high int) (sum int) {
 	return
 }
 
-func createTree(nums []int) *TreeNode {
+func createBstTree(nums []int) *TreeNode {
 	var root *TreeNode
 	if len(nums) == 0 {
 		return root
