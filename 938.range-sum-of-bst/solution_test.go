@@ -1,6 +1,8 @@
 package _38_range_sum_of_bst
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func ExampleTwoSum() {
 	fmt.Println(rangeSumBST(createTree([]int{10, 5, 15, 3, 7, 18}), 7, 15))

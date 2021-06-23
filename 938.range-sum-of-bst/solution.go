@@ -39,6 +39,39 @@ func rangeSumBST(root *TreeNode, low int, high int) int {
 
 }
 
+func rangeSumBST1(root *TreeNode, low, high int) int {
+	if root == nil {
+		return 0
+	}
+	if root.Val > high {
+		return rangeSumBST(root.Left, low, high)
+	}
+	if root.Val < low {
+		return rangeSumBST(root.Right, low, high)
+	}
+	return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
+}
+
+func rangeSumBST2(root *TreeNode, low, high int) (sum int) {
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		node := q[0]
+		q = q[1:]
+		if node == nil {
+			continue
+		}
+		if node.Val > high {
+			q = append(q, node.Left)
+		} else if node.Val < low {
+			q = append(q, node.Right)
+		} else {
+			sum += node.Val
+			q = append(q, node.Left, node.Right)
+		}
+	}
+	return
+}
+
 func createTree(nums []int) *TreeNode {
 	var root *TreeNode
 	if len(nums) == 0 {
