@@ -14,7 +14,7 @@ import "fmt"
 //
 //}
 
-func ExampleAddTwoNumbers1() {
+func ExampleAddTwoNumbers() {
 	nums := []int{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
 	l1 := createRearList(nums)
 	nums1 := []int{5, 6, 4}

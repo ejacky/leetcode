@@ -18,6 +18,7 @@ func createTree(nums []int) *TreeNode {
 
 	var insert func(tree *TreeNode, num int)
 	insert = func(tree *TreeNode, num int) {
+
 		if num < tree.Val {
 			if tree.Left == nil {
 				tree.Left = &TreeNode{Val: num}
@@ -37,6 +38,13 @@ func createTree(nums []int) *TreeNode {
 
 	root = &TreeNode{}
 	root.Val = nums[0]
+
+	var queueNode []TreeNode
+
+	for i := 0; i < len(nums); i++ {
+		queueNode = append(queueNode, TreeNode{Val: nums[i]})
+	}
+
 	for _, num := range nums[1:] {
 		insert(root, num)
 	}
