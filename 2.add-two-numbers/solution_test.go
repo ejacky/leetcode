@@ -20,8 +20,8 @@ func ExampleAddTwoNumbers() {
 	nums1 := []int{5, 6, 4}
 	l2 := createRearList(nums1)
 
-	fmt.Println(addTwoNumbers(l1, l2))
+	fmt.Println(lSlice(addTwoNumbers(l1, l2)))
 	//output:
-	//[6 6 4 0 0 0 0 0 0 0 0 0 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+	//[6 6 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]
 
 }

@@ -81,6 +81,15 @@ func createRearList(nums []int) *ListNode {
 	return l
 }
 
+func lSlice(l *ListNode) []int {
+	var lslice []int
+	for l != nil {
+		lslice = append(lslice, l.Val)
+		l = l.Next
+	}
+	return lslice
+}
+
 func addTwoNumbers1(l1, l2 *ListNode) (head *ListNode) {
 	var tail *ListNode
 	carry := 0

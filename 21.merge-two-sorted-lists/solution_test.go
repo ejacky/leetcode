@@ -8,7 +8,7 @@ func ExampleMergeTwoLists() {
 	l1 := createRearList(nums)
 	nums = []int{1, 3, 4}
 	l2 := createRearList(nums)
-	fmt.Println(mergeTwoLists(l1, l2))
+	fmt.Println(lSlice(mergeTwoLists(l1, l2)))
 
 	//output:
 	//[1 1 2 3 4 4]
