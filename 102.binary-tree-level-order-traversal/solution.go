@@ -40,7 +40,7 @@ func levelOrder(root *TreeNode) [][]int {
 			record = []int{} // 不能写成 record[:0]
 			if len(queue2) > 0 {
 				queue1 = append(queue1, queue2...)
-				queue2 = queue2[:0]
+				queue2 = queue2[:0] // 这里却可以
 			}
 		}
 	}
