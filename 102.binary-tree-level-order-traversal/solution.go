@@ -49,6 +49,24 @@ func levelOrder(root *TreeNode) [][]int {
 
 }
 
+func levelOrder1(root *TreeNode) [][]int {
+	var res [][]int
+	dfs(root, 0, &res)
+	return res
+}
+
+func dfs(root *TreeNode, index int, res *[][]int) {
+	if root == nil {
+		return
+	}
+	if index == len(*res) {
+		*res = append(*res, []int{})
+	}
+	(*res)[index] = append((*res)[index], root.Val)
+	dfs(root.Left, index+1, res)
+	dfs(root.Right, index+1, res)
+}
+
 func leverInsert(nums []int) *TreeNode {
 	var root *TreeNode
 	root = &TreeNode{Val: nums[0]}
