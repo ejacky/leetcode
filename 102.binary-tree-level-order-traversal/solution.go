@@ -6,33 +6,46 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/**
+ * 关键是要想到使用两个队列
+ */
 func levelOrder(root *TreeNode) [][]int {
-	var queue []*TreeNode
-	var tree *TreeNode
-	queue = append(queue, root)
+	if root == nil {
+		return [][]int{}
+	}
 
-	var level [][]int
+	var queue1, queue2 []*TreeNode
+	var tree *TreeNode
+	queue1 = append(queue1, root)
+
+	var records [][]int
 	var record []int
 
-	for len(queue) > 0 {
-		tree = queue[0]
-		queue = queue[1:]
+	for len(queue1) > 0 {
+		tree = queue1[0]
+		queue1 = queue1[1:]
 
 		record = append(record, tree.Val)
 
 		if tree.Left != nil {
-			queue = append(queue, tree.Left)
+			queue2 = append(queue2, tree.Left)
 		}
 
 		if tree.Right != nil {
-			queue = append(queue, tree.Right)
+			queue2 = append(queue2, tree.Right)
 		}
 
-		level = append(level, record)
-
+		if len(queue1) == 0 {
+			records = append(records, record)
+			record = []int{} // 不能写成 record[:0]
+			if len(queue2) > 0 {
+				queue1 = append(queue1, queue2...)
+				queue2 = queue2[:0]
+			}
+		}
 	}
 
-	return level
+	return records
 
 }
 
